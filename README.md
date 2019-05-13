@@ -17,16 +17,15 @@ predictions = [round(value) for value in Y_pred]
 accuracy = accuracy_score(Y_valid, predictions)
 print("Accuracy: %.2f%%" % (accuracy * 100.0))
 
+'''
 thresholds = sort(model.feature_importances_)
 for thresh in thresholds:
   print("Thresh=%.3f start select" % (thresh))
   selection = SelectFromModel(model, threshold=thresh, prefit=True)
   select_X_train = selection.transform(X_train)
-  # train model
   selection_model = XGBClassifier()
   print("start fit")
   selection_model.fit(select_X_train, Y_train)
-  # eval model
   print("start predit")
   select_X_valid = selection.transform(X_valid)
   select_X_test = selection.transform(X_test)
@@ -35,5 +34,5 @@ for thresh in thresholds:
   predictions = [round(value) for value in Y_pred]
   accuracy = accuracy_score(Y_valid, predictions)
   print("Thresh=%.3f, n=%d, Accuracy: %.2f%%" % (thresh, select_X_train.shape[1], accuracy*100.0))
-  
+'''
 然而電腦跑了4個小時連一個結果都沒有，因此放棄。
