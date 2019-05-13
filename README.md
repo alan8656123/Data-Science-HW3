@@ -10,7 +10,7 @@
 
 
 之後我嘗試看看[Feature Selection](https://machinelearningmastery.com/feature-importance-and-feature-selection-with-xgboost-in-python/)的方式
-
+```
 Y_pred = model.predict(X_valid).clip(0, 20)
 
 Y_test = model.predict(X_test).clip(0, 20)
@@ -21,7 +21,6 @@ accuracy = accuracy_score(Y_valid, predictions)
 
 print("Accuracy: %.2f%%" % (accuracy * 100.0))
 
-'''
 thresholds = sort(model.feature_importances_)
 for thresh in thresholds:
   print("Thresh=%.3f start select" % (thresh))
@@ -38,5 +37,5 @@ for thresh in thresholds:
   predictions = [round(value) for value in Y_pred]
   accuracy = accuracy_score(Y_valid, predictions)
   print("Thresh=%.3f, n=%d, Accuracy: %.2f%%" % (thresh, select_X_train.shape[1], accuracy*100.0))
-'''
+```
 然而電腦跑了4個小時連一個結果都沒有，因此放棄。
