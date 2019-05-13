@@ -3,8 +3,10 @@
 之後查到XGBRegressor有個nthread的參數可以讓更多thread下去跑，達到加速的效果。
 
 
-第一次照抄[Feature engineering, xgboost](https://www.kaggle.com/dhimananubhav/feature-engineering-xgboost)可是只得到0.91187
+## 第一次
+照抄[Feature engineering, xgboost](https://www.kaggle.com/dhimananubhav/feature-engineering-xgboost)可是只得到0.91187
 
+## 第二三四次
 照著最後印出的feature importance，嘗試看看減少不重要的特徵，看看是否能加速以及更準確
 ![](features.png)
 結果分數反而更低
@@ -12,7 +14,7 @@
 三：0.91785
 四：0.91445
 
-
+## Feature Selection
 之後我嘗試看看[Feature Selection](https://machinelearningmastery.com/feature-importance-and-feature-selection-with-xgboost-in-python/)的方式
 ```
 Y_pred = model.predict(X_valid).clip(0, 20)
@@ -39,7 +41,9 @@ for thresh in thresholds:
 ```
 然而電腦跑了4個小時連一個結果都沒有，因此放棄。
 
+## 第五、七次
 第五、七次單純增加XGBRegressor的max_depth和n_estimators，結果0.91163比第一次原本的好了0.00024
 
+## 第六次
 第六次因為我想說為什麼我照抄反而比原本的低分，因此將[Feature engineering, xgboost](https://www.kaggle.com/dhimananubhav/feature-engineering-xgboost)上的submisson直接下載下來丟上去看看，想不到也是比0.90646還要差的0.90684分，但是比我抄過去的執行上還來的好，因此推測會發生這個問題應該是sales_train是V2的關係
 
