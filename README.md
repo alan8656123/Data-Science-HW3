@@ -11,11 +11,15 @@
 
 之後我嘗試看看[Feature Selection](https://machinelearningmastery.com/feature-importance-and-feature-selection-with-xgboost-in-python/)的方式
 
->Y_pred = model.predict(X_valid).clip(0, 20)
->Y_test = model.predict(X_test).clip(0, 20)
->predictions = [round(value) for value in Y_pred]
->accuracy = accuracy_score(Y_valid, predictions)
->print("Accuracy: %.2f%%" % (accuracy * 100.0))
+Y_pred = model.predict(X_valid).clip(0, 20)
+
+Y_test = model.predict(X_test).clip(0, 20)
+
+predictions = [round(value) for value in Y_pred]
+
+accuracy = accuracy_score(Y_valid, predictions)
+
+print("Accuracy: %.2f%%" % (accuracy * 100.0))
 
 '''
 thresholds = sort(model.feature_importances_)
